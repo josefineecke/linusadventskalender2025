@@ -25,35 +25,40 @@ const openedDoors = {
   24: "doors-opened/door-opened24.png",
 };
 
+// Alle Türchen-Elemente auswählen
 document.querySelectorAll(".door").forEach(door => {
-  let day = parseInt(door.dataset.day, 10);
+  const day = parseInt(door.dataset.day, 10);
+  const popup = document.getElementById(`popup${day}`);
+  const textarea = popup ? popup.querySelector('textarea') : null;
+  const closeBtn = popup ? popup.querySelector('.close-btn') : null;
+
   door.addEventListener("click", () => {
-    let today = new Date().getDate();
+    const today = new Date().getDate();
+
     if (day > today) {
-      alert("Dieses Türchen darfst du erst am " + day + ". Dezember öffnen!");
-      return;
+      alert(`Dieses Türchen darfst du erst am ${day}. Dezember öffnen!`);
+      return; // Popup nicht öffnen
     }
+
+    // Türchen öffnen (Bild ersetzen)
     door.style.backgroundImage = `url('${openedDoors[day]}')`;
+
+    // Popup öffnen, falls vorhanden
+    if (popup) {
+      popup.classList.add('active');
+      if (textarea) textarea.value = localStorage.getItem(`door${day}text`) || "";
+    }
   });
+
+  // Popup schließen
+  if (closeBtn) {
+    closeBtn.addEventListener('click', () => popup.classList.remove('active'));
+    popup.addEventListener('click', e => {
+      if (e.target === e.currentTarget) popup.classList.remove('active');
+    });
+  }
 });
 
-// Türchen Popups
-['1','2','3'].forEach(num => {
-  const door = document.querySelector(`.d${num}`);
-  const popup = document.getElementById(`popup${num}`);
-  const closeBtn = popup.querySelector('.close-btn');
-  const textarea = popup.querySelector('textarea');
-
-  door.addEventListener('click', () => {
-    popup.classList.add('active');
-    if (textarea) textarea.value = localStorage.getItem(`door${num}text`) || "";
-  });
-
-  closeBtn.addEventListener('click', () => popup.classList.remove('active'));
-  popup.addEventListener('click', e => {
-    if (e.target === e.currentTarget) popup.classList.remove('active');
-  });
-});
 
 // Schneefall
 function createSnowflake() {
