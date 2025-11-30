@@ -35,30 +35,31 @@ h1 {
 }
 
 /* Türchenbilder */
-.d1  { background-image: url("_doors/Group%201.png"); }
-.d2  { background-image: url("_doors/Group%202.png"); }
-.d3  { background-image: url("_doors/Group%203.png"); }
-.d4  { background-image: url("_doors/Group%204.png"); }
-.d5  { background-image: url("_doors/Group%205.png"); }
-.d6  { background-image: url("_doors/Group%206.png"); }
-.d7  { background-image: url("_doors/Group%207.png"); }
-.d8  { background-image: url("_doors/Group%208.png"); }
-.d9  { background-image: url("_doors/Group%209.png"); }
-.d10 { background-image: url("_doors/Group%2010.png"); }
-.d11 { background-image: url("_doors/Group%2011.png"); }
-.d12 { background-image: url("_doors/Group%2012.png"); }
-.d13 { background-image: url("_doors/Group%2013.png"); }
-.d14 { background-image: url("_doors/Group%2014.png"); }
-.d15 { background-image: url("_doors/Group%2015.png"); }
-.d16 { background-image: url("_doors/Group%2016.png"); }
-.d17 { background-image: url("_doors/Group%2017.png"); }
-.d18 { background-image: url("_doors/Group%2018.png"); }
-.d19 { background-image: url("_doors/Group%2019.png"); }
-.d20 { background-image: url("_doors/Group%2020.png"); }
-.d21 { background-image: url("_doors/Group%2021.png"); }
-.d22 { background-image: url("_doors/Group%2022.png"); }
-.d23 { background-image: url("_doors/Group%2023.png"); }
-.d24 { background-image: url("_doors/Group%2024.png"); }
+.d1  { background-image: url("_doors/door1.png"); }
+.d2  { background-image: url("_doors/door2.png"); }
+.d3  { background-image: url("_doors/door3.png"); }
+.d4  { background-image: url("_doors/door4.png"); }
+.d5  { background-image: url("_doors/door5.png"); }
+.d6  { background-image: url("_doors/door6.png"); }
+.d7  { background-image: url("_doors/door7.png"); }
+.d8  { background-image: url("_doors/door8.png"); }
+.d9  { background-image: url("_doors/door9.png"); }
+.d10 { background-image: url("_doors/door10.png"); }
+.d11 { background-image: url("_doors/door11.png"); }
+.d12 { background-image: url("_doors/door12.png"); }
+.d13 { background-image: url("_doors/door13.png"); }
+.d14 { background-image: url("_doors/door14.png"); }
+.d15 { background-image: url("_doors/door15.png"); }
+.d16 { background-image: url("_doors/door16.png"); }
+.d17 { background-image: url("_doors/door17.png"); }
+.d18 { background-image: url("_doors/door18.png"); }
+.d19 { background-image: url("_doors/door19.png"); }
+.d20 { background-image: url("_doors/door20.png"); }
+.d21 { background-image: url("_doors/door21.png"); }
+.d22 { background-image: url("_doors/door22.png"); }
+.d23 { background-image: url("_doors/door23.png"); }
+.d24 { background-image: url("_doors/door24.png"); }
+
 
 /* Popup Hintergrund */
 .popup {

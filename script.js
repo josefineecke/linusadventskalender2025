@@ -1,28 +1,28 @@
 const openedDoors = {
-  1: "_doors-opened/opened_group 1.png",
-  2: "_doors-opened/opened_group 2.png",
-  3: "_doors-opened/opened_group 3.png",
-  4: "_doors-opened/opened_group 4.png",
-  5: "_doors-opened/opened_group 5.png",
-  6: "_doors-opened/opened_group 6.png",
-  7: "_doors-opened/opened_group 7.png",
-  8: "_doors-opened/opened_group 8.png",
-  9: "_doors-opened/opened_group 9.png",
-  10: "_doors-opened/opened_group 10.png",
-  11: "_doors-opened/opened_group 11.png",
-  12: "_doors-opened/opened_group 12.png",
-  13: "_doors-opened/opened_group 13.png",
-  14: "_doors-opened/opened_group 14.png",
-  15: "_doors-opened/opened_group 15.png",
-  16: "_doors-opened/opened_group 16.png",
-  17: "_doors-opened/opened_group 17.png",
-  18: "_doors-opened/opened_group 18.png",
-  19: "_doors-opened/opened_group 19.png",
-  20: "_doors-opened/opened_group 20.png",
-  21: "_doors-opened/opened_group 21.png",
-  22: "_doors-opened/opened_group 22.png",
-  23: "_doors-opened/opened_group 23.png",
-  24: "_doors-opened/opened_group 24.png",
+  1: "_doors-opened/door-opened1.png",
+  2: "_doors-opened/door-opened2.png",
+  3: "_doors-opened/door-opened3.png",
+  4: "_doors-opened/door-opened4.png",
+  5: "_doors-opened/door-opened5.png",
+  6: "_doors-opened/door-opened6.png",
+  7: "_doors-opened/door-opened7.png",
+  8: "_doors-opened/door-opened8.png",
+  9: "_doors-opened/door-opened9.png",
+  10: "_doors-opened/door-opened10.png",
+  11: "_doors-opened/door-opened11.png",
+  12: "_doors-opened/door-opened12.png",
+  13: "_doors-opened/door-opened13.png",
+  14: "_doors-opened/door-opened14.png",
+  15: "_doors-opened/door-opened15.png",
+  16: "_doors-opened/door-opened16.png",
+  17: "_doors-opened/door-opened17.png",
+  18: "_doors-opened/door-opened18.png",
+  19: "_doors-opened/door-opened19.png",
+  20: "_doors-opened/door-opened20.png",
+  21: "_doors-opened/door-opened21.png",
+  22: "_doors-opened/door-opened22.png",
+  23: "_doors-opened/door-opened23.png",
+  24: "_doors-opened/door-opened24.png",
 };
 
 
@@ -46,13 +46,13 @@ document.querySelectorAll(".door").forEach(door => {
     }
 
     // Türchen-Bild ersetzen
-    door.style.backgroundImage = `url("_doors-opened/opened_group ${day}.png")`;
+  door.style.backgroundImage = `url('${openedDoors[day]}')`;
 
     // Zustand im Browser speichern -> Tür bleibt offen
 //localStorage.setItem("door_open_" + day, "true");
 
     // ❄ Türchen DARF geöffnet werden → Türchenbild ersetzen
-    door.style.backgroundImage = `url('_doors-opened/opened_group ${day}.png')`;
+//door.style.backgroundImage = `url('_doors-opened/opened_group ${day}.png')`;
 
     // Inhalt anzeigen
     // let box = document.getElementById("content");
