@@ -1,0 +1,219 @@
+body { 
+    font-family: sans-serif; 
+    background-image: url("_background/background-gradient-snow.png");
+    background-size: cover; /* füllt den gesamten Bildschirm */
+    background-repeat: no-repeat;
+    background-position: center;
+    margin: 0;
+}
+
+h1 {
+  color: #ffffff;              /* weiß */
+  text-align: center;          /* zentriert */
+  font-family: 'Amatic SC';
+  font-family: 'Mountains of Christmas';
+  font-size: 100px;             /* oder nach Geschmack */
+  margin-top: 60px;            /* Abstand nach oben */
+  margin-bottom: 80px;         /* Abstand zum Grid */
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(6, 220px); /* 6 Türchen pro Reihe */
+  gap: 55px 48px; /* 55px vertikal, 48px horizontal */
+  justify-content: center; /* zentriert das Grid horizontal */
+  margin-top: 100px;
+  padding-bottom: 140px;
+}
+
+.door {
+  width: 180px;
+  height: 130px;
+  background-size: cover;
+  background-position: center;
+  cursor: pointer;
+}
+
+/* Türchenbilder */
+.d1  { background-image: url("_doors/Group%201.png"); }
+.d2  { background-image: url("_doors/Group%202.png"); }
+.d3  { background-image: url("_doors/Group%203.png"); }
+.d4  { background-image: url("_doors/Group%204.png"); }
+.d5  { background-image: url("_doors/Group%205.png"); }
+.d6  { background-image: url("_doors/Group%206.png"); }
+.d7  { background-image: url("_doors/Group%207.png"); }
+.d8  { background-image: url("_doors/Group%208.png"); }
+.d9  { background-image: url("_doors/Group%209.png"); }
+.d10 { background-image: url("_doors/Group%2010.png"); }
+.d11 { background-image: url("_doors/Group%2011.png"); }
+.d12 { background-image: url("_doors/Group%2012.png"); }
+.d13 { background-image: url("_doors/Group%2013.png"); }
+.d14 { background-image: url("_doors/Group%2014.png"); }
+.d15 { background-image: url("_doors/Group%2015.png"); }
+.d16 { background-image: url("_doors/Group%2016.png"); }
+.d17 { background-image: url("_doors/Group%2017.png"); }
+.d18 { background-image: url("_doors/Group%2018.png"); }
+.d19 { background-image: url("_doors/Group%2019.png"); }
+.d20 { background-image: url("_doors/Group%2020.png"); }
+.d21 { background-image: url("_doors/Group%2021.png"); }
+.d22 { background-image: url("_doors/Group%2022.png"); }
+.d23 { background-image: url("_doors/Group%2023.png"); }
+.d24 { background-image: url("_doors/Group%2024.png"); }
+
+/* Popup Hintergrund */
+.popup {
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.6);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  visibility: hidden;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  z-index: 9999;
+}
+
+/* Sichtbar wenn aktiv */
+.popup.active {
+  visibility: visible;
+  opacity: 1;
+}
+
+/* Popup Inhalt */
+.popup-content {
+  position: relative;
+  background: transparent;
+  padding: 0;
+  animation: zoomIn 0.4s ease forwards;
+}
+
+/* Bild */
+.popup-content img {
+  max-width: 90vw;
+  max-height: 80vh;
+  border-radius: 8px;
+}
+
+/* Schließen Button */
+.close-btn {
+  position: absolute;
+  top: -15px;
+  right: -15px;
+  background: white;
+  border: none;
+  font-size: 28px;
+  width: 35px;
+  height: 35px;
+  border-radius: 50%;
+  cursor: pointer;
+}
+
+/* Zoom Animation */
+@keyframes zoomIn {
+  0% {
+    transform: scale(0.5);
+    opacity: 0;
+  }
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+
+#popup2 textarea {
+  width: 400px;
+  height: 200px;
+  font-size: 24px;
+  padding: 10px;
+  border-radius: 8px;
+  border: none;
+  resize: none;
+}
+
+#popup2 .save-btn {
+  margin-top: 10px;
+  background: #ffffff;
+  border: none;
+  padding: 8px 16px;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 18px;
+}
+
+
+#popup3 textarea {
+  width: 400px;
+  height: 200px;
+  font-size: 24px;
+  padding: 10px;
+  border-radius: 8px;
+  border: none;
+  resize: none;
+}
+
+#popup3 .save-btn {
+  margin-top: 10px;
+  background: #ffffff;
+  border: none;
+  padding: 8px 16px;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 18px;
+}
+
+
+
+
+/* ❄ Der fallende Schnee */
+#snow {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  overflow: hidden;
+  z-index: 999;
+}
+
+/* ❄ Schnee am Boden */
+#snow-ground {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 0;
+  background-image: url("images/snow-bottom.png");
+  background-repeat: no-repeat;
+  background-position: bottom;
+  background-size: cover;
+  animation: snowAccumulate 20s linear forwards;
+}
+
+@keyframes snowAccumulate {
+  from { height: 0; }
+  to   { height: 120px; } /* Schnee wächst hoch */
+}
+
+
+/* ❄ einzelne Schneeflocken */
+.snowflake {
+  position: absolute;
+  top: -10px;
+  color: white;
+  font-size: 1em;
+  opacity: 0.9;
+  animation: fall linear infinite;
+}
+
+@keyframes fall {
+  0% {
+    transform: translateY(-10px);
+  }
+  100% {
+    transform: translateY(110vh); /* fällt durch den ganzen Bildschirm */
+  }
+}
+
