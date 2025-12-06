@@ -25,13 +25,29 @@ const openedDoors = {
   24: "doors-opened/door-opened24.png",
 };
 
-// Alle Türchen-Elemente auswählen
+// function resetAllDoors() {
+//   for (let i = 1; i <= 24; i++) {
+//     localStorage.removeItem(`door_open_${i}`);
+//   }
+// }
+
+// resetAllDoors();
+
+// === Alle Türchen initialisieren ===
 document.querySelectorAll(".door").forEach(door => {
   const day = parseInt(door.dataset.day, 10);
   const popup = document.getElementById(`popup${day}`);
   const textarea = popup ? popup.querySelector('textarea') : null;
   const closeBtn = popup ? popup.querySelector('.close-btn') : null;
 
+  // Prüfen, ob Tür schon geöffnet ist (localStorage)
+  const isOpened = localStorage.getItem(`door_open_${day}`) === "true";
+  if (isOpened) {
+    door.style.backgroundImage = `url('${openedDoors[day]}')`;
+    door.classList.add("opened"); // Cursor wird auf default gesetzt, Popup blockiert
+  }
+
+  // === Klick auf Türchen ===
   door.addEventListener("click", () => {
     const today = new Date().getDate();
 
@@ -40,8 +56,14 @@ document.querySelectorAll(".door").forEach(door => {
       return; // Popup nicht öffnen
     }
 
-    // Türchen öffnen (Bild ersetzen)
+    // Wenn Tür bereits geöffnet, nichts tun
+    const alreadyOpened = localStorage.getItem(`door_open_${day}`) === "true";
+    if (alreadyOpened) return;
+
+    // Tür öffnen: Bild ändern und als geöffnet speichern
     door.style.backgroundImage = `url('${openedDoors[day]}')`;
+    door.classList.add("opened");
+    localStorage.setItem(`door_open_${day}`, "true");
 
     // Popup öffnen, falls vorhanden
     if (popup) {
@@ -50,7 +72,7 @@ document.querySelectorAll(".door").forEach(door => {
     }
   });
 
-  // Popup schließen
+  // === Popup schließen ===
   if (closeBtn) {
     closeBtn.addEventListener('click', () => popup.classList.remove('active'));
     popup.addEventListener('click', e => {
@@ -58,6 +80,14 @@ document.querySelectorAll(".door").forEach(door => {
     });
   }
 });
+
+// === Türchen 19: Bild-Vollbild öffnen ===
+const open19Btn = document.getElementById("open19img");
+const imgPopup19 = document.getElementById("img-popup19");
+if (open19Btn && imgPopup19) {
+  open19Btn.addEventListener("click", () => imgPopup19.style.display = "flex");
+  imgPopup19.addEventListener("click", () => imgPopup19.style.display = "none");
+}
 
 
 // Schneefall
